@@ -1,13 +1,234 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Poppins'; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+
+@layer components{
+    .divHeader{
+        @apply flex flex-row-reverse justify-between items-center p-5 space-x-1;
+    }
+
+    .btnDelete{
+        @apply border-2 px-4 rounded-md text-base border-red-500 text-red-500;
+    }
+
+    .divHeaderRight{
+        @apply flex items-center space-x-3 font-bold text-black/70;
+    }
+
+    .divBody{
+        @apply flex flex-col ml-6 space-y-2;
+    }
+
+    .background{
+        @apply absolute inset-0 flex w-[100%] h-[100%]  flex-wrap justify-start items-center -z-20;
+    }
+
+    .inputKey{
+        @apply px-2 w-[300px] ml-9 bg-[#f2f2f2] text-black/70 text-sm;
+    }
+
+    .inputSecret{
+        @apply px-2 w-[300px] ml-4 bg-[#f2f2f2] text-black/70 text-sm;
+    }
+
+    .detail{
+        @apply w-[92%] h-auto min-h-[150px] bg-[#f2f2f2] m-5 text-black/70 text-sm p-2;
+    }
+
+    .divFooter{
+        @apply flex w-full  justify-between items-center;
+    }
+
+    .switch{
+       @apply relative inline-block w-[35px] h-auto;
+    }
+
+    .switchBtn{
+        @apply  absolute w-full h-[20px] bg-[#cccc] cursor-pointer inset-0 before:duration-[.3s] rounded-full before:absolute before:w-[15px] before:h-[15px] before:left-[3px] before:top-[2px] before:bottom-[3px]  before:bg-[#808cff] before:rounded-full dark:bg-white;
+    }
+
+    .checkbox{
+        @apply z-10 absolute w-full opacity-0;
+    }
+    .checkbox2{
+        @apply z-10 absolute w-full opacity-0;
+    }
+
+    .btnSave{
+        @apply  px-4 py-1 text-base mr-5 rounded-md border-none text-white bg-green-700;
+    }
+
+    .divFooterLeft{
+        @apply flex  items-start space-x-2;
+    }
+
+    .containerApplication{
+        @apply flex w-[32%] m-1 space-x-2 px-1 cursor-pointer rounded-lg justify-around items-center border-2 dark:border-gray-900;
+    }
+
+    .divColApplication{
+        @apply flex flex-col;
+    }
+
+    .imgApplication{
+        @apply w-[35px] h-[35px] rounded-sm;
+    }
+
+    
+
+    .title{
+        @apply font-semibold dark:text-white text-black/80;
+    }
+
+    .description{
+        @apply text-[9px];
+    }
+
+    
+
+    .i{
+        @apply text-sm text-[#b96ff1];
+    }
+
+    .background{
+        background-image: url('./assets/images/Groupe12x (1).png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        opacity: 0.2;
+    }
+
+
+    .links-circle{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+        background-color: white;
+        
+    }
+
+    .links-circle img:hover{
+        transform: scale(1.2);
+        
+    }
+    
+    
+    .links-circle:hover{
+        opacity: 1;
+    }
+
+    .checkbox:checked + .switchBtn{
+        background-color: rgba(63, 228, 63, 0.438);
+    }
+    
+    .checkbox:checked + .switchBtn::before{
+       transform: translateX(14px);
+       transition: .4s;
+       background-color: rgb(143, 216, 170);
+       transition-property: all;
+       opacity: 0.8;
+    }
+
+    .isCheck{
+        background-color: rgba(63, 228, 63, 0.438);
+    }
+
+    .isCheck::before{
+        transform: translateX(14px);
+       transition: .4s;
+       background-color: rgb(143, 216, 170);
+       transition-property: all;
+       opacity: 0.8;
+    }
+
+   
+
+    
+   
+    
+    
+
 }
+
+#gestionnaire{
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.circle-anim{
+    transition: ease 1s;
+    transform: translate(-5rem, -4rem) scale(1);
+    display: flex;
+
+    
+}
+
+
+
+.links-circle img{
+    width: 60px;
+    transition: transform 0.4s ease;
+    
+}
+
+
+
+.links-circle:nth-child(1){
+    left: 0;
+    bottom: 50%;
+    
+    transition: transform 0.2s ease 0.4s;
+}
+
+.links-circle:nth-child(2){
+    left: 30;
+    top: 0;
+    
+    transition: transform 0.2s ease;
+    
+    
+   
+}
+
+.links-circle:nth-child(3){
+    top: 10%;
+    left: 10%;
+    transition: transform 0.2s ease 0.2s;
+    
+}
+
+#circle-menu.circle-anim .links-circle:nth-child(1){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 0.4s;
+}
+
+#circle-menu.circle-anim .links-circle:nth-child(3){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 0.7s;
+}
+
+#circle-menu.circle-anim .links-circle:nth-child(2){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 1s;
+}
+
